@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cherry Boutique | Moda & Estilo</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="logo-brand">
+                <a href="#" class="logo">
+                    <img src="logo.png" alt="Cherry Boutique Logo" class="logo-img">
+                </a>
+                <div class="slogan-badge">
+                    <span class="slogan-line"></span>
+                    <span class="slogan-text">un dulce estilo para ti</span>
+                    <span class="slogan-line"></span>
+                </div>
+            </div>
+            
+            <nav class="nav-menu" id="navMenu">
+                <a href="#inicio" class="nav-link active">Inicio</a>
+                <a href="#catalogo" class="nav-link">Catálogo</a>
+                <a href="#nosotros" class="nav-link">Nosotros</a>
+                <a href="#opiniones" class="nav-link">Opiniones</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="cart-btn" id="cartBtn" aria-label="Ver carrito">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+                <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-subtitle">COLECCIÓN EXCLUSIVA 2026</span>
+            <h1 class="hero-title">Resalta tu elegancia única</h1>
+            <p class="hero-description">Descubre prendas diseñadas para destacar tu estilo y personalidad en cada ocasión especial.</p>
+            <div class="hero-buttons">
+                <a href="#catalogo" class="btn btn-primary">Ver Catálogo</a>
+                <a href="#nosotros" class="btn btn-secondary">Conócenos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="catalogo" class="catalog-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestra Colección</h2>
+                <div class="title-underline"></div>
+                <p>Explora nuestras prendas destacadas y aparta tu favorita</p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">Todo</button>
+                <button class="filter-btn" data-filter="camisas">Camisas</button>
+                <button class="filter-btn" data-filter="pantalones">Pantalones</button>
+                <button class="filter-btn" data-filter="abrigos">Abrigos</button>
+                <button class="filter-btn" data-filter="vestidos">Vestidos</button>
+                <button class="filter-btn" data-filter="accesorios">Accesorios</button>
+                <button class="filter-btn" data-filter="gorras">Gorras</button>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Features / About -->
+    <section id="nosotros" class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fa-solid fa-crown"></i>
+                    <h3>Calidad Premium</h3>
+                    <p>Telas cuidadosamente seleccionadas para ofrecerte máxima comodidad y durabilidad.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-truck-fast"></i>
+                    <h3>Envíos Rápidos</h3>
+                    <p>Entregas seguras y rápidas a la puerta de tu casa o punto de entrega.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fa-solid fa-heart"></i>
+                    <h3>Atención Personalizada</h3>
+                    <p>Te asesoramos en la elección de tu talla y outfit perfecto vía WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seccion de Comentarios / Opiniones (conectada a la base de datos con opiniones.js) -->
+    <section id="opiniones" class="reviews-section" style="padding: 60px 20px; background: #fdfbfb;">
+        <div class="container" style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <div class="section-title">
+                <h2>Opiniones de la Comunidad</h2>
+                <div class="title-underline"></div>
+                <p>Déjanos tu comentario o sugerencia sobre la experiencia en Cherry Boutique</p>
+            </div>
+
+            <!-- Formulario para dejar comentario -->
+            <form id="reviewForm" style="background: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-top: 30px; text-align: left;">
+                <div style="margin-bottom: 15px;">
+                    <label for="reviewName" style="display:block; margin-bottom: 5px; font-weight: 500;">Tu Nombre:</label>
+                    <input type="text" id="reviewName" name="nombre" maxlength="60" required placeholder="Ej. Valeria Gómez" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="reviewRating" style="display:block; margin-bottom: 5px; font-weight: 500;">Calificación:</label>
+                    <select id="reviewRating" name="calificacion" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;">
+                        <option value="">Elige una calificación…</option>
+                        <option value="5">★★★★★ – Excelente</option>
+                        <option value="4">★★★★☆ – Muy bueno</option>
+                        <option value="3">★★★☆☆ – Bueno</option>
+                        <option value="2">★★☆☆☆ – Regular</option>
+                        <option value="1">★☆☆☆☆ – Malo</option>
+                    </select>
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="reviewText" style="display:block; margin-bottom: 5px; font-weight: 500;">Comentario u Opinión:</label>
+                    <textarea id="reviewText" name="comentario" rows="3" maxlength="500" required placeholder="Excelente servicio y prendas hermosas..." style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box;"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="background: #800020; color: #fff; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-weight: 500;">Publicar Opinión</button>
+                <p id="reviewMessage" role="status" style="margin: 12px 0 0; font-size: 14px;"></p>
+            </form>
+
+            <!-- Promedio de calificaciones -->
+            <p id="reviewsSummary" style="margin-top: 30px; color: #800020; font-weight: 600;"></p>
+
+            <!-- Contenedor donde se cargan dinámicamente los comentarios -->
+            <div id="reviewsList" style="margin-top: 10px; text-align: left;"></div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <footer id="contacto" class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <img src="logo.png" alt="Cherry Boutique Logo" class="footer-logo-img">
+                <p class="footer-slogan">un dulce estilo para ti</p>
+                <p>Moda femenina contemporánea para lucir impecable cada día.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#catalogo">Catálogo</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#opiniones">Opiniones</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Síguenos</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Cherry Boutique. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer / Modal Sidebar -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3><i class="fa-solid fa-bag-shopping"></i> Mi Carrito de Apartado</h3>
+            <button class="cart-close-btn" id="cartCloseBtn">&times;</button>
+        </div>
+        <div class="cart-body" id="cartBody"></div>
+        <div class="cart-footer">
+            <div class="cart-total-row">
+                <span>Total:</span>
+                <span class="cart-total-price" id="cartTotalPrice">$0.00</span>
+            </div>
+            <button class="btn btn-whatsapp" id="whatsappCheckoutBtn">
+                <i class="fa-brands fa-whatsapp"></i> Apartar por WhatsApp
+            </button>
+        </div>
+    </aside>
+
+    <script src="script.js"></script>
+    <script src="opiniones.js"></script>
+</body>
+</html>
